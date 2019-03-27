@@ -1,5 +1,5 @@
 import React from 'react'
 
-const Display = () => <div>Heyy</div>
+const Display = () => <div id="display">Heyy</div>
 
 export default Display
