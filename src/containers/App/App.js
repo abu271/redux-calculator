@@ -4,15 +4,19 @@ import './App.css'
 import Button from '../../components/Button/Button'
 import Display from '../../components/Display/Display'
 
+import { connect } from 'react-redux'
+import store from '../../redux/store'
+import action from '../../redux/actions/action'
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Display />
+        <Display display={this.props.display}/>
         
         <Button id="equals" icon="=" />
         <Button id="decimal" icon="." />
-        <Button id="clear" icon="CLEAR" />
+        <Button id="clear" icon="AC" />
 
         <Button id="add" icon="+" />
         <Button id="subtract" icon="-" />
@@ -34,4 +38,8 @@ class App extends Component {
   }
 }
 
-export default App
+const mapStateToProps = () => ({
+  display: 'it\'s redux baby'
+})
+
+export default connect(mapStateToProps)(App)
