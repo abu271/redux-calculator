@@ -1,11 +1,11 @@
-import hello from '../actions/action'
+import { HELLO } from '../../redux/constants'
 
-const initialState = ''
+const initialState = {display: 'inital state'}
 
 const firstReducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'HELLO':
-            return state = 'Redux is here'
+        case HELLO:
+            return Object.assign({}, state, {display:'reducer is running'})
         default:
             return state
     }

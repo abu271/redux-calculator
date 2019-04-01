@@ -5,16 +5,14 @@ import Button from '../../components/Button/Button'
 import Display from '../../components/Display/Display'
 
 import { connect } from 'react-redux'
-import store from '../../redux/store'
-import action from '../../redux/actions/action'
+import hello from '../../redux/actions/action'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Display display={this.props.display}/>
-        
-        <Button id="equals" icon="=" />
+        <Button func={this.props.onDisplayClick} id="equals" icon="=" />
         <Button id="decimal" icon="." />
         <Button id="clear" icon="AC" />
 
@@ -38,8 +36,12 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = () => ({
-  display: 'it\'s redux baby'
+const mapDispatchToProps = dispatch => ({
+  onDisplayClick: () => dispatch(hello())
 })
 
-export default connect(mapStateToProps)(App)
+const mapStateToProps = (state) => ({
+  display: state.display
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
