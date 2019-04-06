@@ -5,21 +5,21 @@ import Button from '../../components/Button/Button'
 import Display from '../../components/Display/Display'
 
 import { connect } from 'react-redux'
-import hello from '../../redux/actions/action'
+import { CLEAR_ALL, ADD, MULTIPLY, DIVIDE, SUBTRACT } from '../../redux/constants'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Display display={this.props.display}/>
-        <Button func={this.props.onDisplayClick} id="equals" icon="=" />
+        <Display display={ this.props.value }/>
+        <Button id="equals" icon="=" />
         <Button id="decimal" icon="." />
-        <Button id="clear" icon="AC" />
+        <Button func={ this.props.onClickClear } id="clear" icon="AC" />
 
-        <Button id="add" icon="+" />
-        <Button id="subtract" icon="-" />
-        <Button id="multiply" icon="x" />
-        <Button id="divide" icon="/" />
+        <Button func={ this.props.onClickAdd } id="add" icon="+" />
+        <Button func={ this.props.onClickSubtract } id="subtract" icon="-" />
+        <Button func={ this.props.onClickMultiply } id="multiply" icon="x" />
+        <Button func={ this.props.onClickDivide } id="divide" icon="/" />
 
         <Button id="zero" icon="0" />
         <Button id="one" icon="1" />
@@ -37,11 +37,15 @@ class App extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onDisplayClick: () => dispatch(hello())
+  onClickClear: () => dispatch({ type: CLEAR_ALL }),
+  onClickAdd: () => dispatch({ type: ADD }),
+  onClickSubtract: () => dispatch({ type: SUBTRACT }),
+  onClickMultiply: () => dispatch({ type: MULTIPLY }),
+  onClickDivide: () => dispatch({ type:DIVIDE })
 })
 
 const mapStateToProps = (state) => ({
-  display: state.display
+  value: state.value
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
