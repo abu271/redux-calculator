@@ -5,7 +5,7 @@ import Button from '../../components/Button/Button'
 import Display from '../../components/Display/Display'
 
 import { connect } from 'react-redux'
-import { CLEAR_ALL, ADD, MULTIPLY, DIVIDE, SUBTRACT } from '../../redux/constants'
+import * as action from '../../redux/actions/actions'
 
 class App extends Component {
   render() {
@@ -37,11 +37,11 @@ class App extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onClickClear: () => dispatch({ type: CLEAR_ALL }),
-  onClickAdd: () => dispatch({ type: ADD }),
-  onClickSubtract: () => dispatch({ type: SUBTRACT }),
-  onClickMultiply: () => dispatch({ type: MULTIPLY }),
-  onClickDivide: () => dispatch({ type:DIVIDE })
+  onClickClear: () => dispatch(action.clear()),
+  onClickAdd: () => dispatch(action.add()),
+  onClickSubtract: () => dispatch(action.subtract()),
+  onClickMultiply: () => dispatch(action.multiply()),
+  onClickDivide: () => dispatch(action.divide())
 })
 
 const mapStateToProps = (state) => ({

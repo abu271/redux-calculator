@@ -1,4 +1,4 @@
-import { CLEAR_ALL, ADD, MULTIPLY, DIVIDE, SUBTRACT } from '../constants'
+import { CLEAR_ALL, ADD, MULTIPLY, DIVIDE, SUBTRACT, INPUT_NUMBER } from '../actions/constants'
 
 const initialState = {
     value: 'initial state',
@@ -17,6 +17,8 @@ const rootReducer = (state = initialState, action) => {
             return {...state, value: 'divide'}
         case SUBTRACT:
             return {...state, value: 'subtract'}
+        case INPUT_NUMBER:
+            return {...state, value: 'this would work soon'}
         default:
             return state
     }
