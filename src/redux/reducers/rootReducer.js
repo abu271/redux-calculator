@@ -1,4 +1,5 @@
-import { CLEAR_ALL, ADD, MULTIPLY, DIVIDE, SUBTRACT, INPUT_NUMBER } from '../actions/constants'
+import { CLEAR_ALL, ADD, MULTIPLY, DIVIDE, SUBTRACT, INPUT_NUMBER, EQUAL } from '../actions/constants'
+import { calculator } from '../../containers/App/App'
 
 const initialState = {
     value: 'initial state',
@@ -7,10 +8,9 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
     switch(action.type) {
-        case CLEAR_ALL:
-            return {...state, value:'0'}
         case ADD:
-            return {...state, value: 'add'}
+            return calculator.add()
+            // return {...state, value: 'add'}
         case MULTIPLY:
             return {...state, value: 'multiply'}
         case DIVIDE: 
@@ -18,7 +18,13 @@ const rootReducer = (state = initialState, action) => {
         case SUBTRACT:
             return {...state, value: 'subtract'}
         case INPUT_NUMBER:
-            return {...state, value: 'this would work soon'}
+            return {...state, value: calculator.getValue()}
+        case CLEAR_ALL:
+            calculator.clearAll()
+            return {...state, value: calculator.getValue()}
+        case EQUAL:
+            calculator.equals()
+            return {...state, value: calculator.getValue()}
         default:
             return state
     }
