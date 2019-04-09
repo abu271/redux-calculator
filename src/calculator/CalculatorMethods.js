@@ -17,10 +17,15 @@ class CalculatorMethods {
         register.push('+')
 
         currentValue = ''
-        console.log(register)
     }
 
     // subtract
+    subtract() {
+        register.push(currentValue)
+        register.push('-')
+
+        currentValue = ''
+    }
     // multiply
     // divide
 
@@ -40,7 +45,12 @@ class CalculatorMethods {
 
 
     inputNumber(number) {
-        currentValue += number
+        if(currentValue === '0') {
+            currentValue = ''
+            currentValue += number
+        } else {
+            currentValue += number
+        }
     }
 
     clearAll() {

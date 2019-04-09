@@ -16,7 +16,7 @@ const rootReducer = (state = initialState, action) => {
         case DIVIDE: 
             return {...state, value: 'divide'}
         case SUBTRACT:
-            return {...state, value: 'subtract'}
+            return calculator.subtract()
         case INPUT_NUMBER:
             return {...state, value: calculator.getValue()}
         case CLEAR_ALL:
