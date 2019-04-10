@@ -10,11 +10,10 @@ const rootReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD:
             return calculator.add()
-            // return {...state, value: 'add'}
         case MULTIPLY:
-            return {...state, value: 'multiply'}
+            return calculator.multiply()
         case DIVIDE: 
-            return {...state, value: 'divide'}
+            return calculator.divide()
         case SUBTRACT:
             return calculator.subtract()
         case INPUT_NUMBER:

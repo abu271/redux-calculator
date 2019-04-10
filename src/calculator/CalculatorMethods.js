@@ -11,24 +11,30 @@ class CalculatorMethods {
         register = []
         result = []
     }
-    
     add() {
         register.push(currentValue)
         register.push('+')
 
         currentValue = ''
     }
-
-    // subtract
     subtract() {
         register.push(currentValue)
         register.push('-')
 
         currentValue = ''
     }
-    // multiply
-    // divide
+    multiply() {
+        register.push(currentValue)
+        register.push('*')
 
+        currentValue = ''
+    }
+    divide() {
+        register.push(currentValue)
+        register.push('/')
+
+        currentValue = ''
+    }
     equals() {
         if (currentValue === '') {
             return;
