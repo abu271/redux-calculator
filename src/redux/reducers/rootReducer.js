@@ -1,27 +1,31 @@
-import { CLEAR_ALL, ADD, MULTIPLY, DIVIDE, SUBTRACT, INPUT_NUMBER, EQUAL } from '../actions/constants'
-import { calculator } from '../../containers/App/App'
+import * as constant from '../actions/constants'
+import CalculatorMethods from '../../calculator/CalculatorMethods'
 
 const initialState = {
     value: 'initial state',
     expression: ''
 }
 
+const calculator = new CalculatorMethods()
+
 const rootReducer = (state = initialState, action) => {
     switch(action.type) {
-        case ADD:
+        case constant.ADD:
             return calculator.add()
-        case MULTIPLY:
+        case constant.MULTIPLY:
             return calculator.multiply()
-        case DIVIDE: 
+        case constant.DIVIDE: 
             return calculator.divide()
-        case SUBTRACT:
+        case constant.SUBTRACT:
             return calculator.subtract()
-        case INPUT_NUMBER:
+        case constant.INPUT_NUMBER:
             return {...state, value: calculator.getValue()}
-        case CLEAR_ALL:
+        case constant.INPUT_DECIMAL:
+            return {...state, value: calculator.inputDecimal()}
+        case constant.CLEAR_ALL:
             calculator.clearAll()
             return {...state, value: calculator.getValue()}
-        case EQUAL:
+        case constant.EQUAL:
             calculator.equals()
             return {...state, value: calculator.getValue()}
         default:

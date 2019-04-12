@@ -4,40 +4,58 @@ let currentValue = ''
 let register = []
 let result = []
 
-console.log(math)
+
 class CalculatorMethods {
+
     constructor() {
         currentValue = ''
         register = []
         result = []
     }
+
     add() {
+        if(currentValue === '') {
+            return;
+        }
         register.push(currentValue)
         register.push('+')
 
         currentValue = ''
     }
+
     subtract() {
+        if(currentValue === '') {
+            return;
+        }
         register.push(currentValue)
         register.push('-')
 
         currentValue = ''
     }
+
     multiply() {
+        if(currentValue === '') {
+            return;
+        }
         register.push(currentValue)
         register.push('*')
 
         currentValue = ''
     }
+
     divide() {
+        if(currentValue === '') {
+            return;
+        }
         register.push(currentValue)
         register.push('/')
 
         currentValue = ''
     }
+
     equals() {
-        if (currentValue === '') {
-            return;
+        if(currentValue === '') {
+            return
         }
         register.push(currentValue)
 
@@ -46,9 +64,19 @@ class CalculatorMethods {
         result = math.eval(expression)
         currentValue = result.toString()
         register = []
-        console.log(currentValue)
     }
 
+    inputDecimal() {
+        if(currentValue.indexOf('.') >= 0) {
+            return
+        }
+        
+        if(currentValue === '') {
+            currentValue += '0.'
+        } else {
+            currentValue += '.'
+        }
+    }
 
     inputNumber(number) {
         if(currentValue === '0') {

@@ -30,6 +30,12 @@ export const input = () => {
     }
 }
 
+export const decimal = () => {
+    return {
+        type: constant.INPUT_DECIMAL
+    }
+}
+
 export const clear = () => {
     return {
         type: constant.CLEAR_ALL

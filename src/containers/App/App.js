@@ -8,7 +8,7 @@ import CalculatorMethods from '../../calculator/CalculatorMethods'
 import { connect } from 'react-redux'
 import * as action from '../../redux/actions/actions'
 
-export const calculator = new CalculatorMethods()
+const calculator = new CalculatorMethods()
 
 class App extends Component {
 
@@ -17,7 +17,7 @@ class App extends Component {
       <div className="App">
         <Display display={ this.props.value }/>
         <Button func={ this.props.onClickEqual } id="equals" icon="=" />
-        <Button id="decimal" icon="." />
+        <Button func={this.props.onClickDecimal} id="decimal" icon="." />
         <Button func={ this.props.onClickClear } id="clear" icon="AC" />
 
         <Button func={ this.props.onClickAdd } id="add" icon="+" />
@@ -51,6 +51,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(action.input())
   },
   onClickClear: () => dispatch(action.clear()),
+  onClickDecimal: () => dispatch(action.decimal()),
   onClickEqual: () => dispatch(action.equal())
 })
 
