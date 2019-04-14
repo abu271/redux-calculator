@@ -4,24 +4,6 @@ let currentValue = ''
 let register = []
 let result = []
 
-const regex = /(?=(\W{2,}))/gm
-
-const multipleOperators = expression => {
-        let sub = regex.exec(expression)
-
-        //takeout the operators
-        let arr = sub[1].split('')
-
-        let firstOperator = arr.shift()
-        let lastOperator = arr.pop()
-
-        let firstDigit = expression[expression.indexOf(firstOperator) - 1]
-        let lastDigit = expression[expression.indexOf(lastOperator) + 1]
-
-        // create a new string with the last entered operator
-        let newStr = firstDigit + lastOperator + lastDigit
-        return newStr
-}
 
 class CalculatorMethods {
 
@@ -32,7 +14,9 @@ class CalculatorMethods {
     }
 
     add() {
-        
+        if (currentValue === '') {
+            return;
+        }
         register.push(currentValue)
         register.push('+')
 
@@ -40,7 +24,9 @@ class CalculatorMethods {
     }
 
     subtract() {
-        
+        if (currentValue === '') {
+            return;
+        }
         register.push(currentValue)
         register.push('-')
 
@@ -48,7 +34,9 @@ class CalculatorMethods {
     }
 
     multiply() {
-        
+        if (currentValue === '') {
+            return;
+        }
         register.push(currentValue)
         register.push('*')
 
@@ -56,7 +44,9 @@ class CalculatorMethods {
     }
 
     divide() {
-        
+        if (currentValue === '') {
+            return;
+        }
         register.push(currentValue)
         register.push('/')
 
@@ -64,48 +54,24 @@ class CalculatorMethods {
     }
 
     equals() {
-        if(currentValue === '') {
+        if (currentValue === '') {
             return
         }
-
-
         register.push(currentValue)
-        let expression = register.join('')
-        console.log('first')
-        console.log(expression)
 
-        if (expression == '5++5') {
-            expression = '5+5'
-            result = math.eval(expression)
+        const expression = register.join(' ')
 
-            currentValue = result.toString()
-            register = []
-        }
-        
-        if (regex.test(expression)) {
-            expression = multipleOperators(expression)
-            result = math.eval(expression)
-
-            currentValue = result.toString()
-            register = []
-           
-        } else {
-            result = math.eval(expression)
-
-            currentValue = result.toString()
-            register = []
-        }
-
-        console.log('second', result)
-        console.log(expression)
+        result = math.eval(expression)
+        currentValue = result.toString()
+        register = []
     }
 
     inputDecimal() {
-        if(currentValue.indexOf('.') >= 0) {
+        if (currentValue.indexOf('.') >= 0) {
             return
         }
-        
-        if(currentValue === '') {
+
+        if (currentValue === '') {
             currentValue += '0.'
         } else {
             currentValue += '.'
@@ -113,7 +79,7 @@ class CalculatorMethods {
     }
 
     inputNumber(number) {
-        if(currentValue === '0') {
+        if (currentValue === '0') {
             currentValue = ''
             currentValue += number
         } else {
