@@ -1,0 +1,9 @@
+// Variables
+$background-colour: rgb(226, 216, 216);
+$font-colour: black;
+
+body {
+  background-color: $background-colour;
+  font-family: 'Roboto Mono', monospace;
+  color: $font-colour;
+}

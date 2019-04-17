@@ -1,0 +1,17 @@
+.case {
+  display: grid;
+  justify-items: center;
+}
+
+.operator-pad {
+  grid-template-rows: repeat(5,50px);
+}
+
+.number-pad {
+  display: grid;
+  grid-template-columns: repeat(3,50px);
+  grid-template-rows: repeat(4,50px);
+  grid-gap: 5px;
+}
+
+
