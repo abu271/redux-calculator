@@ -17,15 +17,12 @@ class App extends Component {
       <div className="case">
         <Display display={ this.props.value }/>
 
-        <div className="operator-pad">
+        <div className="keypad">
           <Button func={this.props.onClickAdd} id="add" icon="+" />
           <Button func={this.props.onClickSubtract} id="subtract" icon="-" />
           <Button func={this.props.onClickMultiply} id="multiply" icon="x" />
           <Button func={this.props.onClickDivide} id="divide" icon="/" />
-          <Button func={this.props.onClickClear} id="clear" icon="AC" />
-        </div>
-
-        <div className="number-pad">
+    
           <Button func={this.props.onClickInput} id="one" icon="1" />
           <Button func={this.props.onClickInput} id="two" icon="2" />
           <Button func={this.props.onClickInput} id="three" icon="3" />
@@ -37,9 +34,10 @@ class App extends Component {
           <Button func={this.props.onClickInput} id="seven" icon="7" />
           <Button func={this.props.onClickInput} id="eight" icon="8" />
           <Button func={this.props.onClickInput} id="nine" icon="9" />
+          <Button func={this.props.onClickInput} id="zero" icon="0" />
 
           <Button func={this.props.onClickDecimal} id="decimal" icon="." />
-          <Button func={this.props.onClickInput} id="zero" icon="0" />
+          <Button func={this.props.onClickClear} id="clear" icon="AC" />
           <Button func={this.props.onClickEqual} id="equals" icon="=" />
         </div>
       </div>
