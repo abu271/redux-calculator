@@ -1,6 +1,6 @@
 button {
   height: 60px;
-  background-color: #fff;
+  background-color: #eaeaea;
   border-radius: 3px;
   border: 1px solid #c4c4c4;
   background-color: transparent;
@@ -14,9 +14,10 @@ button {
 #equals {
   grid-row-start: 2;
   grid-row-end: 6;
+  grid-column: 4;
   height: 100%;
 }
 
 button:hover {
-  background-color: #eaeaea;
+  background-color: #c2c0c0;
 }

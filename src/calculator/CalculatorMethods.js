@@ -68,7 +68,7 @@ class CalculatorMethods {
 
     inputDecimal() {
         if (currentValue.indexOf('.') >= 0) {
-            return
+            return;
         }
 
         if (currentValue === '') {
@@ -94,6 +94,10 @@ class CalculatorMethods {
 
     getValue() {
         return currentValue
+    }
+
+    getExpression() {
+        return register.join(' ');
     }
 }
 

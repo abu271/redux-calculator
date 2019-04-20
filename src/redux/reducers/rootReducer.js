@@ -11,23 +11,28 @@ const calculator = new CalculatorMethods()
 const rootReducer = (state = initialState, action) => {
     switch(action.type) {
         case constant.ADD:
-            return calculator.add()
+            calculator.add()
+            return {...state, expression: calculator.getExpression()}
         case constant.MULTIPLY:
-            return calculator.multiply()
+            calculator.multiply()
+            return {...state, expression: calculator.getExpression()}
         case constant.DIVIDE: 
-            return calculator.divide()
+            calculator.divide()
+            return {...state, expression: calculator.getExpression()}
         case constant.SUBTRACT:
-            return calculator.subtract()
+            calculator.subtract()
+            return {...state, expression: calculator.getExpression()}
         case constant.INPUT_NUMBER:
             return {...state, value: calculator.getValue()}
         case constant.INPUT_DECIMAL:
-            return {...state, value: calculator.inputDecimal()}
+            calculator.inputDecimal()
+            return { ...state, value: calculator.getValue().toString()}
         case constant.CLEAR_ALL:
             calculator.clearAll()
             return {...state, value: calculator.getValue()}
         case constant.EQUAL:
             calculator.equals()
-            return {...state, value: calculator.getValue()}
+            return { ...state, value: calculator.getValue(), expression: calculator.getExpression()}
         default:
             return state
     }

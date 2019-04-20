@@ -15,6 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="case">
+        <Display display={this.props.expression} />
         <Display display={ this.props.value }/>
 
         <div className="keypad">
@@ -61,7 +62,8 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = (state) => ({
-  value: state.value
+  value: state.value,
+  expression: state.expression
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
