@@ -3,6 +3,7 @@ import * as math from 'mathjs'
 let currentValue = ''
 let register = []
 let result = []
+let expression = ''
 
 
 class CalculatorMethods {
@@ -59,7 +60,7 @@ class CalculatorMethods {
         }
         register.push(currentValue)
 
-        const expression = register.join(' ')
+        expression = register.join(' ')
 
         result = math.eval(expression)
         currentValue = result.toString()
@@ -90,6 +91,7 @@ class CalculatorMethods {
     clearAll() {
         currentValue = '0'
         register = []
+        expression = ''
     }
 
     getValue() {

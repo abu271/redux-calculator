@@ -29,7 +29,7 @@ const rootReducer = (state = initialState, action) => {
             return { ...state, value: calculator.getValue().toString()}
         case constant.CLEAR_ALL:
             calculator.clearAll()
-            return {...state, value: calculator.getValue()}
+            return {...state, value: calculator.getValue(), expression: calculator.getExpression()}
         case constant.EQUAL:
             calculator.equals()
             return { ...state, value: calculator.getValue(), expression: calculator.getExpression()}

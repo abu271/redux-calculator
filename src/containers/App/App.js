@@ -15,8 +15,10 @@ class App extends Component {
   render() {
     return (
       <div className="case">
-        <Display display={this.props.expression} />
-        <Display display={ this.props.value }/>
+        <div id="screen">
+          <Display display={this.props.expression} />
+          <Display display={this.props.value} />
+        </div>
 
         <div className="keypad">
           <Button func={this.props.onClickAdd} id="add" icon="+" />
