@@ -1,5 +1,5 @@
 import React from 'react'
-import './button.scss'
+import './Button.scss'
 
 const Button = ({ id, icon, func}) => (
     <button onClick={ func } value={ icon } id={ id }>
