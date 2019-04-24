@@ -1,7 +1,7 @@
 # React/Redux Calculator App
 
 ### Description:
-Simple calculator app build with react and redux.
+Simple calculator app built with react and redux.
 
 ### Technologies used:
 This web app used the following technologies:
