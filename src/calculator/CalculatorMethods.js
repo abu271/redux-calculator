@@ -16,7 +16,7 @@ class CalculatorMethods {
 
     add() {
         if (currentValue === '') {
-            return;
+            return
         }
         register.push(currentValue)
         register.push('+')
@@ -26,7 +26,7 @@ class CalculatorMethods {
 
     subtract() {
         if (currentValue === '') {
-            return;
+            return
         }
         register.push(currentValue)
         register.push('-')
@@ -36,7 +36,7 @@ class CalculatorMethods {
 
     multiply() {
         if (currentValue === '') {
-            return;
+            return
         }
         register.push(currentValue)
         register.push('*')
@@ -46,7 +46,7 @@ class CalculatorMethods {
 
     divide() {
         if (currentValue === '') {
-            return;
+            return
         }
         register.push(currentValue)
         register.push('/')
@@ -69,7 +69,7 @@ class CalculatorMethods {
 
     inputDecimal() {
         if (currentValue.indexOf('.') >= 0) {
-            return;
+            return
         }
 
         if (currentValue === '') {
@@ -99,7 +99,7 @@ class CalculatorMethods {
     }
 
     getExpression() {
-        return register.join(' ');
+        return register.join(' ')
     }
 }
 
